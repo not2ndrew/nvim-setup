@@ -25,13 +25,22 @@ require("lazy").setup({
 	require("plugins.toggleterm"),
 	require("plugins.oil"),
 }, {
-	lazy = false,
-})
+		rocks = {
+			enabled = false,
+			hererocks = false,
+		},
+		lazy = false,
+	})
+
+-- Disable provider warnings
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
 
 -- Terminal Safety
 -- If someone were to open nvim within nvim terminal, it will stop immediately
-
 if vim.env.NVIM then
-	vim.api.nvim_err_writeln("Cannot run Neovim within Neovim Terminal!")
+	vim.notify("Cannot run Neovim within Neovim Terminal!")
 	vim.cmd("quit")
 end

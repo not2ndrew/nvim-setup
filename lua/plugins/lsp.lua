@@ -2,7 +2,6 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			-- Allows extra capabilities provided by blink.cmp
 			"saghen/blink.cmp",
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
@@ -26,7 +25,7 @@ return {
 				settings = {
 					Lua = {
 						runtime = {
-							version = "LuaJIT", -- Neovim uses LuaJIT
+							version = "LuaJIT",
 						},
 						diagnostics = {
 							globals = { "vim" }, -- Prevent 'vim' is undefined
