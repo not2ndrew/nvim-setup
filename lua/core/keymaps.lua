@@ -14,6 +14,7 @@ vim.g.maplocalleader = " "
 vim.keymap.set({ "n", "v" }, "<space>", "<Nop>", { silent = true })
 
 -- For conciseness
+local term_opts = { silent = true }
 local opts = { noremap = true, silent = true }
 
 -- Save File
@@ -34,16 +35,10 @@ vim.keymap.set("n", "<Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
 
 -- Window management
-vim.keymap.set("n", "<leader>v", "<C-w>v", opts) -- split window vertically
-vim.keymap.set("n", "<leader>h", "<C-w>s", opts) -- split window horizontally
-vim.keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
-vim.keymap.set("n", "<leader>xs", ":close<CR>", opts) -- close current split window
-
--- Navigate between splits
-vim.keymap.set("n", "<C-k>", ":wincmd k<CR>", opts)
-vim.keymap.set("n", "<C-j>", ":wincmd j<CR>", opts)
-vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", opts)
-vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Toggle line wrapping
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
@@ -51,3 +46,10 @@ vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
 -- Stay in indent mode
 vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
+
+-- Terminal --
+-- Better terminal navigation
+vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+vim.keymap.set("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)

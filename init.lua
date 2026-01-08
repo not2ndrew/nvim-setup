@@ -20,7 +20,6 @@ require("lazy").setup({
 	require("plugins.lsp"),
 	require("plugins.autocompletion"),
 	require("plugins.autopair"),
-	require("plugins.toggleterm"),
 	require("plugins.oil"),
 }, {
 		rocks = {
