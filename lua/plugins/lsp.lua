@@ -6,6 +6,21 @@ return {
 			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function ()
+			-- Disable snippet jump points when autocompleting snippets.
+			local capabilities = require('blink.cmp').get_lsp_capabilities({
+					textDocument = {
+						completion = {
+							completionItem = {
+								snippetSupport = false,
+							}
+						}
+					}
+				})
+
+			-- Apply to ALL LSP
+			vim.lsp.config("*", {
+				capabilities = capabilities,
+			})
 
 			-- Diagnostics
 			vim.diagnostic.config({
@@ -21,6 +36,7 @@ return {
 
 			-- Lua LSP
 			vim.lsp.config("lua_ls", {
+				-- Remove Snippet jump points when auto completing.
 				cmd = { "lua-language-server" },
 				filetypes = { "lua" },
 				root_markers = {
