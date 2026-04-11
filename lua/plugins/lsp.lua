@@ -16,7 +16,6 @@ return {
 						}
 					}
 				})
-
 			-- Apply to ALL LSP
 			vim.lsp.config("*", {
 				capabilities = capabilities,
@@ -34,10 +33,11 @@ return {
 				severity_sort = false,
 			})
 
+
 			-- Lua LSP
 			vim.lsp.config("lua_ls", {
 				-- Remove Snippet jump points when auto completing.
-				cmd = { "lua-language-server" },
+				cmd = { "C:/Users/brand/AppData/Local/Programs/Lua/bin/lua.exe" },
 				filetypes = { "lua" },
 				root_markers = {
 					'.luarc.json',
@@ -70,16 +70,17 @@ return {
 				},
 			})
 
-			-- Zig LSP
+			-- -- Zig LSP
 			vim.lsp.config("zls", {
 				cmd = { 'zls' },
 				filetypes = { 'zig', 'zir' },
 				root_markers = { 'zls.json', 'build.zig', '.git' },
 			})
 
-			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("zls")
-
+			vim.lsp.enable({
+				"lua_ls",
+				"zls",
+			})
 		end
 	}
 }
