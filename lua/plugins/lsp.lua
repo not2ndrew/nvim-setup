@@ -37,7 +37,7 @@ return {
 			-- Lua LSP
 			vim.lsp.config("lua_ls", {
 				-- Remove Snippet jump points when auto completing.
-				cmd = { "C:/Users/brand/AppData/Local/Programs/Lua/bin/lua.exe" },
+                cmd = { "lua" },
 				filetypes = { "lua" },
 				root_markers = {
 					'.luarc.json',

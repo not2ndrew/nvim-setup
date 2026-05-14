@@ -2,6 +2,12 @@
 vim.o.number = true -- Make line numbers
 vim.o.relativenumber = true -- Make line numbers relative
 
+-- Tabs
+vim.o.expandtab = true -- Replace tabs with spaces
+vim.o.shiftwidth = 4 -- Number of spaces for each indentation level
+vim.o.tabstop = 4 -- Number of spaces that a <Tab> in the file counts for
+vim.o.softtabstop = 4 -- Number of spaces that a <Tab> counts for while editing
+
 -- Clipboard and mouse
 vim.o.clipboard = "unnamedplus" -- Sync between OS and Neovim
 vim.o.mouse = "a" -- Enable mouse mode
